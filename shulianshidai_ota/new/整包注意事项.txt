@@ -1,0 +1,23 @@
+如果制作差分包时 ，请注意以下几点：
+1、编译，按以下顺序执行编译
+  make [project] new
+  make [project] otapackage
+ 【【【【注意：打包或备份img文件一定要在编译otapackage之后，因为执行otapackage时img文件会重新生成，如果直接在new之后执行打包或备份img会造成手机的源版本与制作差分包的源版本不一致。】】】】
+2、文件备份
+     请将编译后生成的文件out/target/product/[project]/obj/PACKAGING/target_files_intermediates目录下生成1个xxx-target_files-eng.xxx.zip，与你们的发布版本放到一起备份
+3、差分包
+     将第2步骤中的zip包复制到目录\android目录下
+     执行  build/tools/releasetools/ota_from_target_files -i a.zip b.zip  update.zip
+     就会生成另外一个zip包
+     a.zip 代表上个版本编译后生成的ota包，b.zip 代表当前版本编译后生产的ota包，update.zip就是要生成的差分包
+
+
+查看版本号方法：
+   1）查看版本号 ：一个方法是直接进我们应用，界面上显示的。
+
+   2）另外就是在 system/build.prop里面 
+      ro.build.display.id+"."+ro.build.date.utc 
+
+     如：ro.build.display.id = sdk-eng2.2FRF91 
+         ro.build.date.utc   = 1277931480
+     版本号是: sdk-eng2.2FRF91.1277931480
