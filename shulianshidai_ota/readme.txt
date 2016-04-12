@@ -8,6 +8,9 @@
     2、使用命令：java -jar signapk.jar platform.x509.pem platform.pk8 NoSigned.apk Signed.apk 以上 platform.x509.pem platform.pk8 请使用自己工程上相对应的签名文件。signapk.jar 在工程out/host/linux-x86/framework]
     每次量产软件版本，请保留整包以方便制作升级包，整包制作说明见附【整包注意事项】；
     如需支持，请联络：宫庆忠（TEL:13691892867，QQ:524900280）
+    
+    ./build/target/product/security/platform.x509.pem    userdebug
+./build/target/product/security/release/platform.x509.pem
 
     二、管理后台如下，操作说明见附【FOTA新版后台说明.ppt】
     地址: http://portal.digitimetech.com/signin
