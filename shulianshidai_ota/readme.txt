@@ -12,6 +12,10 @@
     ./build/target/product/security/platform.x509.pem    userdebug
 ./build/target/product/security/release/platform.x509.pem
 
+java -jar out/host/linux-x86/framework/signapk.jar build/target/product/security/platform.x509.pem build/target/product/security/platform.pk8 SystemFota1.apk SystemFota.apk
+
+
+
     二、管理后台如下，操作说明见附【FOTA新版后台说明.ppt】
     地址: http://portal.digitimetech.com/signin
     账号: LUOBIN
