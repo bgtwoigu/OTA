@@ -70,6 +70,10 @@ User版本：
 ./build/tools/releasetools/ota_from_target_files -i  A-target.zip –k build/target/product/security/release/releasekey B-target.zip A-B_update.zip
 
 
+java -Xmx2048m -jar out/host/linux-x86/framework/signapk.jar -w build/target/product/security/release/releasekey.x509.pem build/target/product/security/release/releasekey.pk8 SystemFota1.apk SystemFota.apk 
+./build/tools/releasetools/ota_from_target_files -i out/target/product/LB1512/obj/PACKAGING/target_files_intermediates/a.zip -k build/target/product/security/release/releasekey out/target/product/LB1512/obj/PACKAGING/target_files_intermediates/LB1512-target_files-eng.zhangzhaolei.zip update.zip
+
+
 查看版本号方法：
    1）查看版本号 ：一个方法是直接进我们应用，界面上显示的。
 
