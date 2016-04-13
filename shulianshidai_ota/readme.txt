@@ -14,12 +14,19 @@
 
 java -jar out/host/linux-x86/framework/signapk.jar build/target/product/security/platform.x509.pem build/target/product/security/platform.pk8 SystemFota1.apk SystemFota.apk
 
+userdebug
+running:  java -Xmx2048m -jar out/host/linux-x86/framework/signapk.jar -w build/target/product/security/testkey.x509.pem build/target/product/security/testkey.pk8 SystemFota1.apk SystemFota.apk
+
+usr
+java -Xmx2048m -jar out/host/linux-x86/framework/signapk.jar -w build/target/product/security/release/releasekey.x509.pem build/target/product/security/release/releasekey.pk8 SystemFota1.apk SystemFota.apk
+
+
 
 
     二、管理后台如下，操作说明见附【FOTA新版后台说明.ppt】
     地址: http://portal.digitimetech.com/signin
     账号: LUOBIN
-    密码: 000000
+    密码: Robbie2015
     如需支持，请联络：孙金花（TEL:13714655330，QQ:529502428）
 
     谢谢！
@@ -52,6 +59,15 @@ java -jar out/host/linux-x86/framework/signapk.jar build/target/product/security
      执行  ./build/tools/releasetools/ota_from_target_files -i a.zip b.zip  update.zip
      就会生成另外一个zip包
      a.zip 代表上个版本编译后生成的ota包，b.zip 代表当前版本编译后生产的ota包，update.zip就是要生成的差分包
+     
+//////////////////////
+下面是5.1的编译命令：
+Userdebug版本：
+./build/tools/releasetools/ota_from_target_files -i A-target.zip –k build/target/product/security/testkey B-target.zip A-B_update.zip
+其中A-B_update.zip名字是最终的差分包名字
+
+User版本：
+./build/tools/releasetools/ota_from_target_files -i  A-target.zip –k build/target/product/security/release/releasekey B-target.zip A-B_update.zip
 
 
 查看版本号方法：
